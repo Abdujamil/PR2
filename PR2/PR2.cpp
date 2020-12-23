@@ -143,21 +143,21 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 		/*TODO: Добавьте сюда любой код прорисовки, использующий HDC...
 		объявляем экзмепляр структуры RECT - координаты прямоугольника.*/
 
-		int shirina = wincords.right - wincords.left;
-		int visota = wincords.bottom - wincords.top;
+		int width = wincords.right - wincords.left;
+		int height = wincords.bottom - wincords.top;
 
 		/* Заполняем прямоугольник*/
 		/* FillRect(hdc, &r, (HBRUSH)CreateSolidBrush(RGB(17, 228, 0)));*/
 		HBRUSH brush = CreateSolidBrush(RGB(17, 228, 0));
 		SelectObject(hdc, brush);
 		Rectangle(
-			hdc, shirina * 2.8 / 3, (visota * 2.8 / 5),
+			hdc, width * 2.8 / 3, (height * 2.8 / 5),
 			      
-			shirina / 1.4, (visota / 4)
+			width / 1.4, (height / 4)
 		);
 		
 		SetTextColor(hdc, RGB(0, 0, 255));
-		TextOut(hdc, shirina / 6.2, visota *  2 / 2.4,  L"Гафаров А.А", 11);
+		TextOut(hdc, width / 5, width / 2.5,  L"Гафаров А.А", 11);
 
 		EndPaint(hWnd, &ps);
 
